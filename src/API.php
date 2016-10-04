@@ -42,10 +42,10 @@ class API {
 
 		$response = json_decode($return_val);
 		if($response == null || !isset($response->response))
-			throw new Exception("invalid response from videohuddle partner api");
+			throw new APIException("invalid response from videohuddle partner api");
 
 		if($response->response->status != "success")
-			throw new Exception($response->response->message);
+			throw new APIException($response->response->message);
 
 		return $response->data;
 	}
