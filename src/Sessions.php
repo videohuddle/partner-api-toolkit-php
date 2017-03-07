@@ -25,9 +25,11 @@ class Sessions {
 		return null;
 	}
 
-	public static function join($id, $username) {
+	public static function join($id, $username, $email, $telephone) {
 		$response = API::request("sessions/" . $id . "/join", array(
-			"name" => $username
+			"name"      => $username,
+			"email"     => $email,
+			"telephone" => $telephone
 		));
 		return $response->member;
 	}
